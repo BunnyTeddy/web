@@ -1,4 +1,5 @@
 import { fixtureDescriptors, freshFixtureReports } from '@/data/fixtureReports'
+import { freshHistoricalScanJobs } from '@/data/historicalScanJobs'
 import type {
   ActionResult,
   AppSettings,
@@ -119,6 +120,7 @@ export class MockSecSourceClient implements SecSourceClient {
         reportScanId: report.scanId,
       })
     }
+    for (const job of freshHistoricalScanJobs()) this.#jobs.set(job.id, job)
   }
 
   async getStatus(serverUrl = this.#settings.serverUrl): Promise<ClientStatus> {

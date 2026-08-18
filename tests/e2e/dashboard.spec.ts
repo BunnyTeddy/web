@@ -69,7 +69,29 @@ test.describe('SecSource dashboard', () => {
     await page.goto('/scans')
 
     await expect(page.getByRole('heading', { name: 'Scans' })).toBeVisible()
-    await expect(page.getByText('3 of 3 jobs shown')).toBeVisible()
+    await expect(page.getByText('13 of 13 jobs shown')).toBeVisible()
+
+    const pagination = page.locator('.pagination-bar')
+    await expect(pagination).toBeVisible()
+    await expect(pagination).toContainText('Page 1 of 2')
+
+    const projectRow = (projectName: string) =>
+      page.locator('tbody tr').filter({
+        has: page.getByRole('button', { name: projectName }),
+      })
+
+    await expect(projectRow('API Gateway')).toContainText(/completed/i)
+    await expect(projectRow('API Gateway')).toContainText(/deep/i)
+    await expect(projectRow('Billing Service')).toContainText(/failed/i)
+    await expect(projectRow('Billing Service')).toContainText(/shallow/i)
+    await expect(projectRow('Mobile API')).toContainText(/cancelled/i)
+    await expect(projectRow('Mobile API')).toContainText(/auto/i)
+
+    await pagination.locator('.n-pagination-item--clickable').filter({ hasText: '2' }).click()
+    await expect(pagination).toContainText('Page 2 of 2')
+    await expect(page.getByRole('button', { name: 'Notifications Service' })).toBeVisible()
+    await pagination.locator('.n-pagination-item--clickable').filter({ hasText: '1' }).click()
+    await expect(pagination).toContainText('Page 1 of 2')
 
     const scanActivity = page.getByRole('log', { name: 'Scan activity' })
     await expect(scanActivity).toBeVisible()

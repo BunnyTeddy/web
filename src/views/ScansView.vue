@@ -444,9 +444,31 @@ onBeforeUnmount(() => {
 }
 
 .list-pane {
+  display: flex;
   min-width: 0;
   min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.list-pane > :deep(.table-shell) {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.list-pane > :deep(.table-shell .table-scroll) {
+  height: 100%;
   overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.list-pane > :deep(.table-shell .table-scroll thead) {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: #101518;
 }
 
 .detail-pane {
@@ -527,12 +549,16 @@ onBeforeUnmount(() => {
 
 .pagination-bar {
   display: flex;
+  position: relative;
+  z-index: 2;
   min-height: 57px;
+  flex: 0 0 57px;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 0 14px;
   border-top: 1px solid #283036;
+  background: #0f1417;
 }
 
 .pagination-bar > span {
@@ -558,7 +584,21 @@ onBeforeUnmount(() => {
   }
 
   .list-pane {
+    display: block;
+    overflow: visible;
     border-right: 0;
+  }
+
+  .list-pane > :deep(.table-shell) {
+    overflow: visible;
+  }
+
+  .list-pane > :deep(.table-shell .table-scroll) {
+    height: auto;
+    overflow-x: auto;
+    overflow-y: visible;
+    overscroll-behavior: auto;
+    scrollbar-gutter: auto;
   }
 }
 

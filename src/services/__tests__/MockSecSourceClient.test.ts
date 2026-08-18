@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { HISTORICAL_SCAN_JOBS } from '@/data/historicalScanJobs'
+import { severityTotal } from '@/domain/types'
 import { MockSecSourceClient } from '@/services/MockSecSourceClient'
 
 describe('MockSecSourceClient', () => {
@@ -18,12 +20,58 @@ describe('MockSecSourceClient', () => {
     vi.useRealTimers()
   })
 
-  it('starts with the three completed fixture jobs', async () => {
+  it('starts with three fixture jobs followed by ten deterministic historical jobs', async () => {
     const jobs = await client.listScans()
+    const reportBackedJobs = jobs.filter((job) => job.reportScanId !== null)
+    const historicalJobs = jobs.filter((job) => job.id.startsWith('history-'))
 
-    expect(jobs).toHaveLength(3)
-    expect(jobs.every((job) => job.status === 'completed')).toBe(true)
-    expect(jobs.reduce((count, job) => count + job.findingCount, 0)).toBe(153)
+    expect(jobs).toHaveLength(13)
+    expect(new Set(jobs.map((job) => job.id))).toHaveLength(13)
+    expect(jobs.map((job) => job.createdAt)).toEqual(
+      [...jobs.map((job) => job.createdAt)].sort((left, right) => right.localeCompare(left)),
+    )
+
+    expect(reportBackedJobs).toHaveLength(3)
+    expect(reportBackedJobs.every((job) => job.status === 'completed')).toBe(true)
+    expect(reportBackedJobs.reduce((count, job) => count + job.findingCount, 0)).toBe(153)
+
+    expect(HISTORICAL_SCAN_JOBS).toHaveLength(10)
+    expect(historicalJobs).toHaveLength(10)
+    expect(historicalJobs.every((job) => job.reportScanId === null)).toBe(true)
+    expect(historicalJobs.every((job) => job.createdAt < '2026-08-17T00:00:00.000Z')).toBe(true)
+    expect(new Set(historicalJobs.map((job) => job.status))).toEqual(
+      new Set(['completed', 'failed', 'cancelled']),
+    )
+    expect(new Set(historicalJobs.map((job) => job.mode))).toEqual(
+      new Set(['auto', 'deep', 'shallow']),
+    )
+    expect(
+      historicalJobs.every(
+        (job) =>
+          job.startedAt !== null &&
+          job.finishedAt !== null &&
+          job.createdAt <= job.startedAt &&
+          job.startedAt <= job.finishedAt,
+      ),
+    ).toBe(true)
+    expect(
+      historicalJobs
+        .filter((job) => job.status === 'completed')
+        .every(
+          (job) =>
+            job.progress === 100 &&
+            job.error === null &&
+            job.activity.includes('Detailed report is no longer available'),
+        ),
+    ).toBe(true)
+    expect(
+      historicalJobs
+        .filter((job) => job.status === 'failed')
+        .every((job) => job.progress < 100 && Boolean(job.error)),
+    ).toBe(true)
+    expect(
+      historicalJobs.every((job) => severityTotal(job.severityCounts) === job.findingCount),
+    ).toBe(true)
   })
 
   it('moves a demo scan deterministically through its lifecycle', async () => {
