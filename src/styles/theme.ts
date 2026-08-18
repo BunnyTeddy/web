@@ -1,0 +1,41 @@
+import type { GlobalThemeOverrides } from 'naive-ui'
+
+export const naiveThemeOverrides: GlobalThemeOverrides = {
+  common: {
+    primaryColor: '#b7ef45',
+    primaryColorHover: '#c8f66a',
+    primaryColorPressed: '#95ce2d',
+    primaryColorSuppl: '#b7ef45',
+    successColor: '#9bdd45',
+    warningColor: '#f0ad38',
+    errorColor: '#f26d5f',
+    infoColor: '#66aef4',
+    bodyColor: '#0a0d0f',
+    cardColor: '#111619',
+    modalColor: '#111619',
+    popoverColor: '#171c20',
+    inputColor: '#0d1113',
+    borderColor: '#293137',
+    dividerColor: '#242b30',
+    textColorBase: '#eef1ed',
+    textColor1: '#eef1ed',
+    textColor2: '#c5cbc6',
+    textColor3: '#879197',
+    borderRadius: '8px',
+    borderRadiusSmall: '6px',
+    fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    fontFamilyMono: "'v-mono', 'SFMono-Regular', Consolas, monospace",
+    heightMedium: '38px',
+    heightSmall: '32px',
+  },
+  Button: {
+    borderRadiusMedium: '7px',
+    fontWeight: '600',
+  },
+  DataTable: {
+    thColor: '#111518',
+    tdColor: '#0f1316',
+    tdColorHover: '#151b1f',
+    borderColor: '#283036',
+  },
+}
