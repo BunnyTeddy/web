@@ -1,0 +1,40 @@
+# secsource-cli 0.1.0 — quick reference
+
+# Show help / version
+./secsource-cli --help
+./secsource-cli --version
+
+# Save scanner endpoint and an existing token
+./secsource-cli setup \
+  --server https://scanner.example.com \
+  --token TOKEN
+
+# Obtain and save a token
+./secsource-cli login \
+  --token-url https://auth.example.com/application/o/token/ \
+  --client-id CLIENT_ID \
+  --username USERNAME \
+  --password PASSWORD \
+  --scope api \
+  --server https://scanner.example.com
+
+# Check server health
+./secsource-cli status
+
+# Submit a scan and receive JOB_ID
+./secsource-cli scan /path/to/project --mode deep --format json
+
+# Submit, wait, and write the completed report
+./secsource-cli scan /path/to/project \
+  --mode deep \
+  --format json \
+  --wait \
+  -o report.json
+
+# Download a completed report
+./secsource-cli get JOB_ID -o report.json
+
+# Cancel/delete a job
+./secsource-cli cancel JOB_ID
+
+# Not available in v0.1.0: list jobs / get a job's status.

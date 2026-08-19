@@ -1,0 +1,3372 @@
+{
+  "metadata": {
+    "scan_id": "a4ed0807adcd4ceeacddffa94a1a3473",
+    "mode": "deep",
+    "started_at": "2026-08-17T09:35:59.716518Z",
+    "finished_at": "2026-08-17T09:55:27.468563Z",
+    "tool_versions": {
+      "trivy": "0.71.2"
+    },
+    "degraded_reasons": []
+  },
+  "findings": [
+    {
+      "id": "c5059f7f-159e-5af1-9720-51b39e5f51f8",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-21884",
+      "message": "react-router: @remix-run/react: React Router SSR XSS in ScrollRestoration",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+      "raw": {
+        "Title": "react-router: @remix-run/react: React Router SSR XSS in ScrollRestoration",
+        "Description": "React Router is a router for React. In @remix-run/react version prior to 2.17.3. and react-router 7.0.0 through 7.11.0, a XSS vulnerability exists in in React Router's <ScrollRestoration> API in Framework Mode when using the getKey/storageKey props during Server-Side Rendering which could allow arbitrary JavaScript execution during SSR if untrusted content is used to generate the keys. There is no impact if server-side rendering in Framework Mode is disabled, or if Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>) is being used. This issue has been patched in @remix-run/react version 2.17.3 and react-router version 7.12.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "5641dab5-ddd5-5903-990e-8a973c2af593",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-22029",
+      "message": "@remix-run/router: react-router: React Router vulnerable to XSS via Open Redirects",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+      "raw": {
+        "Title": "@remix-run/router: react-router: React Router vulnerable to XSS via Open Redirects",
+        "Description": "React Router is a router for React. In @remix-run/router version prior to 1.23.2 and react-router 7.0.0 through 7.11.0, React Router (and Remix v1/v2) SPA open navigation redirects originating from loaders or actions in Framework Mode, Data Mode, or the unstable RSC modes can result in unsafe URLs causing unintended javascript execution on the client. This is only an issue if you are creating redirect paths from untrusted content or via an open redirect. There is no impact if Declarative Mode (<BrowserRouter>) is being used. This issue has been patched in @remix-run/router version 1.23.2 and react-router version 7.12.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "15246280-6a44-59fd-b826-cd1daaa1313a",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-33245",
+      "message": "react-router: React Router: Cross-Site Scripting vulnerability via untrusted React Server Component redirects",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.13.2",
+      "raw": {
+        "Title": "react-router: React Router: Cross-Site Scripting vulnerability via untrusted React Server Component redirects",
+        "Description": "React Router is a router for React. In versions 7.7.0 through 7.13.1, when using React Router's unstable React Server Components (RSC) APIs, there is a potential client-side Cross-Site Scripting (XSS) vulnerability in the RSC redirect handling if redirects come from untrusted sources. This does not impact applications that are not using the unstable RSC APIs in React Router. This is patched in version 7.13.2."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "2d2b87c2-6ec6-57a4-bb6e-f360eca32013",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-34077",
+      "message": "react-router: React Router: Denial of Service via client-side Cross-Site Scripting in RSC redirect handling",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.14.0",
+      "raw": {
+        "Title": "react-router: React Router: Denial of Service via client-side Cross-Site Scripting in RSC redirect handling",
+        "Description": "React Router is a router for React. In versions 7.7.0 through 7.13.1, when using React Router's unstable React Server Components (RSC) APIs, there is a potential client-side Cross-Site Scripting (XSS) vulnerability in the RSC redirect handling if redirects come from untrusted sources. This does not impact applications that are not using the unstable RSC APIs in React Router. This is patched in version 7.13.2."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "5d0a23e4-6387-5277-b83a-7faa466b8097",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-42211",
+      "message": "react-router: React Router: Remote Code Execution via prototype pollution in Framework Mode",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.14.2",
+      "raw": {
+        "Title": "react-router: React Router: Remote Code Execution via prototype pollution in Framework Mode",
+        "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.1, when using Framework Mode, a combination of steps could potentially allow unauthorized remote code execution (RCE) through external requests. This attack requires the application code to have an existing prototype pollution vulnerability, which can then be leveraged in a 2-step attack where the second step triggers unauthorized RCE on the remote server. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in version 7.14.2."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "11d10444-01e9-57c6-bdae-f8b68a70d025",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-42342",
+      "message": "react-router: @remix-run/server-runtime: React Router / Remix: Denial of Service via unbounded path expansion in __manifest endpoint",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.15.0",
+      "raw": {
+        "Title": "react-router: @remix-run/server-runtime: React Router / Remix: Denial of Service via unbounded path expansion in __manifest endpoint",
+        "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.x of react-router and versions 2.10.0 through 2.17.4 of @remix-run/server-runtime, certain crafted requests can consume disproportionate server resources via unbounded path expansion in the __manifest endpoint, resulting in response time degradation and/or service unavailability for end users. This affects React Router Framework Mode applications as well as Remix applications. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in react-router version 7.15.0 and @remix-run/server-runtime version 2.17.5."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "f564d9bd-639d-5e70-b265-23b9449a5d63",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-55685",
+      "message": "react-router: @remix-run/server-runtime: React Router: Denial of Service via unauthenticated manifest endpoint requests",
+      "severity": "high",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+      "raw": {
+        "Title": "react-router: @remix-run/server-runtime: React Router: Denial of Service via unauthenticated manifest endpoint requests",
+        "Description": "React Router is a router for React. In versions 7.0.0 through 7.17.0, the manifest endpoint could be accessed via unauthenticated targeted requests that would put heavy load on the server and slow down response times. This issue is a follow up to CVE-2026-42342, and does not does not impact React Router applications using Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>). This issue has been fixed in version 7.18.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "3c951f85-aead-5d88-9592-f8f718d3fad4",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-22030",
+      "message": "react-router: React Router CSRF in Action/Server Action Request Processing",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+      "raw": {
+        "Title": "react-router: React Router CSRF in Action/Server Action Request Processing",
+        "Description": "React Router is a router for React. In @remix-run/server-runtime version prior to 2.17.3. and react-router 7.0.0 through 7.11.0, React Router (or Remix v2) is vulnerable to CSRF attacks on document POST requests to UI routes when using server-side route action handlers in Framework Mode, or when using React Server Actions in the new unstable RSC modes. There is no impact if Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>) is being used. This issue has been patched in @remix-run/server-runtime version 2.17.3 and react-router version 7.12.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "e14783e8-fda1-513f-8fff-a07311dbe3b3",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-33244",
+      "message": "react-router: React Router: Cross-Site Scripting (XSS) via improper HTTP Location header neutralization",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.13.2",
+      "raw": {
+        "Title": "react-router: React Router: Cross-Site Scripting (XSS) via improper HTTP Location header neutralization",
+        "Description": "React Router is a router for React. In versions 7.5.1 through 7.13.1, when using Framework Mode with pre-rendering enabled, improper neutralization of the HTTP `Location` header value can permit Cross-Site Scripting (XSS) in the statically generated HTML files if the redirect location comes from an untrusted source. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in version 7.13.2."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "a3683b21-2761-50ec-a2b4-da8e475d609b",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-40181",
+      "message": "react-router: React Router: Open redirect vulnerability via specially crafted URLs",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.14.1, 6.30.4",
+      "raw": {
+        "Title": "react-router: React Router: Open redirect vulnerability via specially crafted URLs",
+        "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.0 and 6.7.0 through 6.30.3, certain URLs passed to the redirect function can trigger an open redirect to an external domain due to path values starting with // being reinterpreted as protocol-relative URLs. The level of impact depends on the validation done by the application prior to returning the redirect. This does not impact applications using Declarative Mode (<BrowserRouter>). This is patched in versions 7.14.1 and 6.30.4."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": "redirect",
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "67f7165a-b002-5dbe-8b39-d4ba25997f81",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-53666",
+      "message": "react-router: React Router: Information disclosure via client-side constructor execution",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+      "raw": {
+        "Title": "react-router: React Router: Information disclosure via client-side constructor execution",
+        "Description": "React Router is a router for React. In versions 6.4.0 through 7.17.0, if application code was written in a way that allows attacker-supplied input to overwrite certain aspects of errors caught by the SSR process, then it was possible for an attacker to trigger unexpected constructor execution on the client, which would in turn trigger an outbound network request. This is only possible with very specific (and unlikely) application-layer code. Note that this does not impact an application if it is using Declarative Mode. It only impacts Framework Mode and Data Mode applications that perform manual SSR/hydration. This issue has been fixed in version 7.18.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "417d3ed6-f919-520b-9764-6503b522e85a",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-53668",
+      "message": "react-router: react-router-dom: React Router: Cross-Site Scripting (XSS) via open redirects",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.13.0",
+      "raw": {
+        "Title": "react-router: react-router-dom: React Router: Cross-Site Scripting (XSS) via open redirects",
+        "Description": "React Router is a router for React. In versions 6.30.2 through 6.30.4 and 7.9.6 through 7.12.0, applications that allow open redirects are vulnerable to XSS. An attacker could craft a malicious link that redirects users to an unexpected external site or that exploits an XSS vector.This issue has been fixed in version 7.13.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    },
+    {
+      "id": "a9f9a7d6-6065-5329-aaee-3617532e57ff",
+      "tool": "trivy",
+      "category": "dependency",
+      "rule_id": "CVE-2026-53669",
+      "message": "react-router: React Router: Open Redirect vulnerability via backslashes in navigation components",
+      "severity": "medium",
+      "confidence": "unknown",
+      "locations": [
+        {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        }
+      ],
+      "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+      "raw": {
+        "Title": "react-router: React Router: Open Redirect vulnerability via backslashes in navigation components",
+        "Description": "React Router is a router for React. Versions 6.0.0 through 7.17.0 are vulnerable to Open Redirtect through use of backslashes in <Link> and useNavigate. This issue is a follow up to CVE-2025-68470 and has been fixed in version 7.18.0."
+      },
+      "dependency": {
+        "name": "react-router",
+        "version": "7.9.6",
+        "ecosystem": "npm",
+        "source_file": "package-lock.json",
+        "line_range": [
+          2995,
+          3016
+        ],
+        "raw": null,
+        "relationship": null,
+        "depth": null,
+        "introducers": [],
+        "purl": "pkg:npm/react-router@7.9.6",
+        "is_self": false
+      },
+      "deep_investigable": true,
+      "reachability": null,
+      "paths": {
+        "declared_at": {
+          "file": "package-lock.json",
+          "line_start": 2995,
+          "line_end": 3016,
+          "snippet": null
+        },
+        "probes": [
+          {
+            "name": "react-router",
+            "sites": [
+              {
+                "file": "src/App.jsx",
+                "line_start": 1,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/onboarding/OnboardingPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/settings/SettingsPage.jsx",
+                "line_start": 4,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/MiniProgress.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/home/HomePage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/progress/ProgressPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              },
+              {
+                "file": "src/pages/studio/StudioPage.jsx",
+                "line_start": 2,
+                "line_end": null,
+                "snippet": null
+              }
+            ],
+            "truncated": false
+          }
+        ],
+        "symbol": null,
+        "symbol_sites": [],
+        "coverage": "unavailable"
+      }
+    }
+  ],
+  "investigated_findings": [
+    {
+      "shallow_finding": {
+        "id": "c5059f7f-159e-5af1-9720-51b39e5f51f8",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-21884",
+        "message": "react-router: @remix-run/react: React Router SSR XSS in ScrollRestoration",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+        "raw": {
+          "Title": "react-router: @remix-run/react: React Router SSR XSS in ScrollRestoration",
+          "Description": "React Router is a router for React. In @remix-run/react version prior to 2.17.3. and react-router 7.0.0 through 7.11.0, a XSS vulnerability exists in in React Router's <ScrollRestoration> API in Framework Mode when using the getKey/storageKey props during Server-Side Rendering which could allow arbitrary JavaScript execution during SSR if untrusted content is used to generate the keys. There is no impact if server-side rendering in Framework Mode is disabled, or if Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>) is being used. This issue has been patched in @remix-run/react version 2.17.3 and react-router version 7.12.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The vulnerable API surface for CVE-2026-21884 is the ScrollRestoration component, and the investigator's definitive whole-repo searches found no imports or call sites of ScrollRestoration anywhere in first-party code. The app is client-side only (BrowserRouter, createRoot) with no SSR path, so the SSR sink is not exercised. However, path coverage is UNAVAILABLE \u2014 the manifest carries no dependency graph, so the set of packages that could introduce react-router is unknown, and the searched names were a guess. Under the rules, not_exploitable is forbidden when coverage is UNAVAILABLE, regardless of how strong the symbol-level absence appears. The evidence strongly suggests non-use but cannot positively rule out all paths, so the verdict is unknown.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/main.jsx:4",
+          "src/App.jsx:98"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/main.jsx",
+            "line": 4,
+            "role": "entrypoint",
+            "note": "imports and renders <App /> via createRoot (client-only, no SSR)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes from react-router-dom (client router)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 98,
+            "role": "caller",
+            "note": "renders <BrowserRouter> SPA; no ScrollRestoration used",
+            "verified": true
+          },
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "introducer",
+            "note": "declares react-router 7.9.6 as dependency",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "5641dab5-ddd5-5903-990e-8a973c2af593",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-22029",
+        "message": "@remix-run/router: react-router: React Router vulnerable to XSS via Open Redirects",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+        "raw": {
+          "Title": "@remix-run/router: react-router: React Router vulnerable to XSS via Open Redirects",
+          "Description": "React Router is a router for React. In @remix-run/router version prior to 1.23.2 and react-router 7.0.0 through 7.11.0, React Router (and Remix v1/v2) SPA open navigation redirects originating from loaders or actions in Framework Mode, Data Mode, or the unstable RSC modes can result in unsafe URLs causing unintended javascript execution on the client. This is only an issue if you are creating redirect paths from untrusted content or via an open redirect. There is no impact if Declarative Mode (<BrowserRouter>) is being used. This issue has been patched in @remix-run/router version 1.23.2 and react-router version 7.12.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "Dependency finding for react-router 7.9.6 (CVE-2026-22029, XSS via open redirect). Reachability analysis is UNAVAILABLE (no call graph) and path coverage is UNAVAILABLE (no dependency graph), so `not_exploitable` is forbidden regardless of the investigator's observations. The investigator found that all observed navigation targets are hardcoded internal literals and that no useSearchParams/useLocation call sites exist, which suggests no attacker-controlled URL reaches navigation. However, several claimed sink locations (OnboardingPage.jsx:46, SettingsPage.jsx:200, HomePage.jsx:39, StudioPage.jsx:40, etc.) are NOT OBSERVED, so the hardcoded-literal claims at those lines cannot be relied upon. Because coverage is UNAVAILABLE and the vulnerable API surface cannot be proven unreachable with attacker-controlled data, the correct verdict is unknown.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:41",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "introducer",
+            "note": "declares react-router 7.9.6 (vulnerable dependency)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Route/Navigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 41,
+            "role": "caller",
+            "note": "defines Routes with hardcoded path literals and Navigate targets",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "15246280-6a44-59fd-b826-cd1daaa1313a",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-33245",
+        "message": "react-router: React Router: Cross-Site Scripting vulnerability via untrusted React Server Component redirects",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.13.2",
+        "raw": {
+          "Title": "react-router: React Router: Cross-Site Scripting vulnerability via untrusted React Server Component redirects",
+          "Description": "React Router is a router for React. In versions 7.7.0 through 7.13.1, when using React Router's unstable React Server Components (RSC) APIs, there is a potential client-side Cross-Site Scripting (XSS) vulnerability in the RSC redirect handling if redirects come from untrusted sources. This does not impact applications that are not using the unstable RSC APIs in React Router. This is patched in version 7.13.2."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The CVE concerns XSS via untrusted React Server Component redirects, a server-side feature. The observed application is a client-side SPA using BrowserRouter and useNavigate with static route targets; no server-side RSC usage or server redirect path was found. However, path coverage is UNAVAILABLE (no dependency graph), which forbids a not_exploitable verdict, and no attacker-controlled input was demonstrated reaching any vulnerable API. Exploit cannot be established, and non-exploit cannot be positively proven under the coverage constraint.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:102",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "react-router@7.9.6 declared; pulled in transitively via react-router-dom@7.9.6 (lockfile:3023-3024)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "app imports BrowserRouter/Routes/Route/Navigate from react-router-dom, indicating client-side routing",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 102,
+            "role": "caller",
+            "note": "BrowserRouter wraps client-side routes; no server-side RSC redirect path observed",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "2d2b87c2-6ec6-57a4-bb6e-f360eca32013",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-34077",
+        "message": "react-router: React Router: Denial of Service via client-side Cross-Site Scripting in RSC redirect handling",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.14.0",
+        "raw": {
+          "Title": "react-router: React Router: Denial of Service via client-side Cross-Site Scripting in RSC redirect handling",
+          "Description": "React Router is a router for React. In versions 7.7.0 through 7.13.1, when using React Router's unstable React Server Components (RSC) APIs, there is a potential client-side Cross-Site Scripting (XSS) vulnerability in the RSC redirect handling if redirects come from untrusted sources. This does not impact applications that are not using the unstable RSC APIs in React Router. This is patched in version 7.13.2."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The vulnerable package react-router 7.9.6 is present transitively via react-router-dom (package-lock.json:2995, 3026). The CVE targets RSC (React Server Components) redirect handling \u2014 a server-side/data-router feature. The evidence shows the app is a client-side Vite SPA (package.json:1, 22) using only client-side router APIs (BrowserRouter/Routes/Route/Navigate at src/App.jsx:1,13; useNavigate at OnboardingPage.jsx:2 and SettingsPage.jsx:4), with no RSC, no data router, and no redirect() calls. However, Coverage is UNAVAILABLE (no dependency graph) and Reachability is UNAVAILABLE (no call graph ran), which explicitly forbids a not_exploitable verdict. The vulnerable RSC redirect code inside the react-router package was not inspected, and no attacker-controlled input path into it was demonstrated. Because the path set is unknown and the vulnerable API's usage cannot be positively excluded, the finding remains an open question: verdict unknown.",
+        "evidence_refs": [
+          "package.json:1",
+          "package.json:22",
+          "src/App.jsx:1",
+          "src/App.jsx:13",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "package-lock.json:2995",
+          "package-lock.json:3026"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Route/Navigate from react-router-dom (client-side SPA router)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 13,
+            "role": "caller",
+            "note": "AppRoutes renders <Routes> with client-side <Route>/<Navigate> elements",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "imports useNavigate from react-router-dom (client-side navigation)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 4,
+            "role": "import",
+            "note": "imports useNavigate from react-router-dom (client-side navigation)",
+            "verified": true
+          },
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "declares react-router 7.9.6 (transitively via react-router-dom 7.9.6, package-lock.json:3026)",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "5d0a23e4-6387-5277-b83a-7faa466b8097",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-42211",
+        "message": "react-router: React Router: Remote Code Execution via prototype pollution in Framework Mode",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.14.2",
+        "raw": {
+          "Title": "react-router: React Router: Remote Code Execution via prototype pollution in Framework Mode",
+          "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.1, when using Framework Mode, a combination of steps could potentially allow unauthorized remote code execution (RCE) through external requests. This attack requires the application code to have an existing prototype pollution vulnerability, which can then be leveraged in a 2-step attack where the second step triggers unauthorized RCE on the remote server. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in version 7.14.2."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The dependency react-router 7.9.6 is present (package-lock.json:2995) and the CVE targets Framework Mode (createBrowserRouter/RouterProvider/loaders/actions). Observed usage is entirely declarative client-side routing: BrowserRouter/Routes/Route and useNavigate, with no Framework Mode APIs found in the files read (App.jsx fully, page file tops). However, reachability analysis is UNAVAILABLE and path coverage is UNAVAILABLE, so the absence of observed Framework Mode usage is not positive proof of non-exploitability. The investigator did not read full bodies of several page files, and the function-name import search is indicative only. No attacker-controlled source reaching a vulnerable sink was demonstrated. Therefore the finding cannot be classified as not_exploitable (forbidden under UNAVAILABLE coverage) nor as exploit (no demonstrated source-to-sink path), leaving it unknown.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "package.json:16",
+          "src/App.jsx:1",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2",
+          "src/main.jsx:4",
+          "src/App.jsx:41"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/main.jsx",
+            "line": 4,
+            "role": "entrypoint",
+            "note": "mounts <App /> via createRoot",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Route/Navigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 41,
+            "role": "caller",
+            "note": "renders declarative <BrowserRouter><Routes> (no createBrowserRouter/RouterProvider/loaders)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "imports useNavigate from react-router-dom (client-side nav only)",
+            "verified": true
+          },
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "declares react-router 7.9.6 (vulnerable version present)",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "11d10444-01e9-57c6-bdae-f8b68a70d025",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-42342",
+        "message": "react-router: @remix-run/server-runtime: React Router / Remix: Denial of Service via unbounded path expansion in __manifest endpoint",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.15.0",
+        "raw": {
+          "Title": "react-router: @remix-run/server-runtime: React Router / Remix: Denial of Service via unbounded path expansion in __manifest endpoint",
+          "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.x of react-router and versions 2.10.0 through 2.17.4 of @remix-run/server-runtime, certain crafted requests can consume disproportionate server resources via unbounded path expansion in the __manifest endpoint, resulting in response time degradation and/or service unavailability for end users. This affects React Router Framework Mode applications as well as Remix applications. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in react-router version 7.15.0 and @remix-run/server-runtime version 2.17.5."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The finding targets a server-side DoS in the React Router / Remix server runtime (__manifest endpoint). The repository is a client-side Vite SPA using only react-router-dom; no server runtime packages (@remix-run/server-runtime, @remix-run/node, @remix-run/express) are present, and all 7 import sites use only client-side APIs. This strongly suggests the vulnerable endpoint is not exercised. However, the dependency-graph coverage is UNAVAILABLE, and reachability analysis is UNAVAILABLE. Per the decision rules, not_exploitable is forbidden when path coverage is UNAVAILABLE, regardless of the strength of the evidence. The absence of a server runtime is positive evidence, but the formal constraint requires an unknown verdict. Confidence is medium because the evidence is strong but the coverage limitation prevents a definitive non-exploitable determination.",
+        "evidence_refs": [
+          "package.json:1",
+          "package.json:20",
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "client-side import of react-router-dom (BrowserRouter/Routes) \u2014 no server runtime",
+            "verified": true
+          },
+          {
+            "file": "package.json",
+            "line": 20,
+            "role": "introducer",
+            "note": "declares react-router-dom ^7.9.6 as the only react-router dependency (client-side SPA)",
+            "verified": true
+          },
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "declares react-router@7.9.6 (client DOM build, deps cookie/set-cookie-parser)",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "f564d9bd-639d-5e70-b265-23b9449a5d63",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-55685",
+        "message": "react-router: @remix-run/server-runtime: React Router: Denial of Service via unauthenticated manifest endpoint requests",
+        "severity": "high",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+        "raw": {
+          "Title": "react-router: @remix-run/server-runtime: React Router: Denial of Service via unauthenticated manifest endpoint requests",
+          "Description": "React Router is a router for React. In versions 7.0.0 through 7.17.0, the manifest endpoint could be accessed via unauthenticated targeted requests that would put heavy load on the server and slow down response times. This issue is a follow up to CVE-2026-42342, and does not does not impact React Router applications using Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>). This issue has been fixed in version 7.18.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The vulnerable component is the server-side manifest endpoint of @remix-run/server-runtime. The repository is a client-only Vite SPA: all seven observed react-router imports (src/App.jsx:1, src/pages/onboarding/OnboardingPage.jsx:2, src/pages/settings/SettingsPage.jsx:4, and four more) are client-side BrowserRouter/useNavigate usages, and a whole-repo search found no import of @remix-run/server-runtime anywhere. This is strong evidence that the server-side manifest endpoint is not used. However, the dependency graph coverage is UNAVAILABLE, which per policy forbids a not_exploitable verdict even when the package-level evidence is strong, because the set of packages that could introduce the vulnerable server runtime is unknown. Therefore the verdict is unknown, not not_exploitable.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "package.json:1",
+          "src/App.jsx:1",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "react-router 7.9.6 declared in manifest",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "client-side BrowserRouter/Routes imported from react-router-dom (SPA)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 4,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/MiniProgress.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/HomePage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/progress/ProgressPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          },
+          {
+            "file": "src/pages/studio/StudioPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "useNavigate from react-router-dom (client-side)",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "3c951f85-aead-5d88-9592-f8f718d3fad4",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-22030",
+        "message": "react-router: React Router CSRF in Action/Server Action Request Processing",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.12.0",
+        "raw": {
+          "Title": "react-router: React Router CSRF in Action/Server Action Request Processing",
+          "Description": "React Router is a router for React. In @remix-run/server-runtime version prior to 2.17.3. and react-router 7.0.0 through 7.11.0, React Router (or Remix v2) is vulnerable to CSRF attacks on document POST requests to UI routes when using server-side route action handlers in Framework Mode, or when using React Server Actions in the new unstable RSC modes. There is no impact if Declarative Mode (<BrowserRouter>) or Data Mode (createBrowserRouter/<RouterProvider>) is being used. This issue has been patched in @remix-run/server-runtime version 2.17.3 and react-router version 7.12.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The repository is a client-side React SPA using only client-side DOM bindings from react-router-dom (BrowserRouter, useNavigate, etc.). No server-side framework usage (no @react-router/node, @react-router/serve, createBrowserRouter, useActionData) is present, so the vulnerable Action/Server Action processing surface is not instantiated. However, the dependency path coverage is UNAVAILABLE (no dependency graph), which forbids a not_exploitable verdict regardless of the strong evidence of non-use. Therefore the verdict is unknown.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports react-router-dom client-side BrowserRouter/Routes/Route/Navigate",
+            "verified": true
+          },
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "import",
+            "note": "declares react-router 7.9.6 dependency (vulnerable version present but server surface unused)",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "e14783e8-fda1-513f-8fff-a07311dbe3b3",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-33244",
+        "message": "react-router: React Router: Cross-Site Scripting (XSS) via improper HTTP Location header neutralization",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.13.2",
+        "raw": {
+          "Title": "react-router: React Router: Cross-Site Scripting (XSS) via improper HTTP Location header neutralization",
+          "Description": "React Router is a router for React. In versions 7.5.1 through 7.13.1, when using Framework Mode with pre-rendering enabled, improper neutralization of the HTTP `Location` header value can permit Cross-Site Scripting (XSS) in the statically generated HTML files if the redirect location comes from an untrusted source. This does not impact applications using Declarative Mode (`<BrowserRouter>`) or Data Mode (`createBrowserRouter/<RouterProvider>`). This is patched in version 7.13.2."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "low",
+        "reasoning": "The react-router dependency is present (package-lock.json:2995), but dependency-graph coverage is UNAVAILABLE, so the set of packages that could pull in react-router is unknown and not_exploitable is forbidden. The probed import paths (src/App.jsx:1, src/pages/onboarding/OnboardingPage.jsx:2, etc.) are production code using BrowserRouter with hardcoded navigation targets and no redirect() or Location-header handling, but this only shows the probed paths do not exercise the vulnerable API. Because coverage is UNAVAILABLE, other unsearched paths could still use the vulnerable redirect behavior. The evidence is insufficient to establish exploitability or non-exploitability.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:101",
+          "src/pages/onboarding/OnboardingPage.jsx:46",
+          "src/pages/settings/SettingsPage.jsx:200",
+          "src/pages/home/HomePage.jsx:39",
+          "src/pages/progress/ProgressPage.jsx:196",
+          "src/pages/studio/StudioPage.jsx:40"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Route/Navigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 101,
+            "role": "entrypoint",
+            "note": "App() mounts <BrowserRouter> wrapping <AppRoutes/>",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 46,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal, no attacker input",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 200,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/HomePage.jsx",
+            "line": 39,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/progress/ProgressPage.jsx",
+            "line": 196,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/studio/StudioPage.jsx",
+            "line": 40,
+            "role": "caller",
+            "note": "navigate('/home') \u2014 hardcoded literal",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "a3683b21-2761-50ec-a2b4-da8e475d609b",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-40181",
+        "message": "react-router: React Router: Open redirect vulnerability via specially crafted URLs",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.14.1, 6.30.4",
+        "raw": {
+          "Title": "react-router: React Router: Open redirect vulnerability via specially crafted URLs",
+          "Description": "React Router is a router for React. In versions 7.0.0 through 7.14.0 and 6.7.0 through 6.30.3, certain URLs passed to the redirect function can trigger an open redirect to an external domain due to path values starting with // being reinterpreted as protocol-relative URLs. The level of impact depends on the validation done by the application prior to returning the redirect. This does not impact applications using Declarative Mode (<BrowserRouter>). This is patched in versions 7.14.1 and 6.30.4."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": "redirect",
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "low",
+        "reasoning": "Reachability analysis is UNAVAILABLE and dependency-path coverage is UNAVAILABLE, so not_exploitable is forbidden. The vulnerable symbol `redirect` has no observed call sites, and all observed `navigate` calls use hardcoded literal paths with no attacker-controlled input. However, the symbol search is by name and misses aliased/dynamic invocation, and the dependency graph is unknown, so the absence of evidence is not positive proof of non-use. The finding remains an open question.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:41",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/onboarding/OnboardingPage.jsx:46",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/settings/SettingsPage.jsx:200",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/MiniProgress.jsx:126",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/home/HomePage.jsx:39",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:73",
+          "src/pages/studio/StudioPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:40"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Navigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 41,
+            "role": "caller",
+            "note": "catch-all route renders <Navigate to={literal \"/home\" or \"/onboarding\"}> \u2014 hardcoded target",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 46,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 200,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/HomePage.jsx",
+            "line": 39,
+            "role": "caller",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/progress/ProgressPage.jsx",
+            "line": 73,
+            "role": "caller",
+            "note": "navigate('/home') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/studio/StudioPage.jsx",
+            "line": 40,
+            "role": "caller",
+            "note": "navigate('/home') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/MiniProgress.jsx",
+            "line": 126,
+            "role": "caller",
+            "note": "navigate('/progress') \u2014 hardcoded literal",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "67f7165a-b002-5dbe-8b39-d4ba25997f81",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-53666",
+        "message": "react-router: React Router: Information disclosure via client-side constructor execution",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+        "raw": {
+          "Title": "react-router: React Router: Information disclosure via client-side constructor execution",
+          "Description": "React Router is a router for React. In versions 6.4.0 through 7.17.0, if application code was written in a way that allows attacker-supplied input to overwrite certain aspects of errors caught by the SSR process, then it was possible for an attacker to trigger unexpected constructor execution on the client, which would in turn trigger an outbound network request. This is only possible with very specific (and unlikely) application-layer code. Note that this does not impact an application if it is using Declarative Mode. It only impacts Framework Mode and Data Mode applications that perform manual SSR/hydration. This issue has been fixed in version 7.18.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "low",
+        "reasoning": "The vulnerable package react-router 7.9.6 is declared and actively imported in production routing code (BrowserRouter, useNavigate), so the library's code paths are live. However, the specific CVE mechanism ('client-side constructor execution') lives inside the external dependency and was not observable from this repository; no attacker-controlled input was traced to any vulnerable sink. Reachability analysis is UNAVAILABLE and dependency-path coverage is UNAVAILABLE, which forbids a not_exploitable verdict and leaves the exploitability of the specific vulnerability undetermined. The evidence shows the package is used, but not that the vulnerable API is reached with attacker-controlled data.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:41",
+          "src/pages/onboarding/OnboardingPage.jsx:2",
+          "src/pages/settings/SettingsPage.jsx:4",
+          "src/pages/home/MiniProgress.jsx:2",
+          "src/pages/home/HomePage.jsx:2",
+          "src/pages/progress/ProgressPage.jsx:2",
+          "src/pages/studio/StudioPage.jsx:2"
+        ],
+        "evidence_chain": [
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "introducer",
+            "note": "declares react-router 7.9.6 as a dependency",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "imports BrowserRouter/Routes/Route/Navigate from react-router-dom; App() mounts <BrowserRouter> (lines 94-106)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 41,
+            "role": "caller",
+            "note": "AppRoutes renders <Routes> with all app routes, exercising the router",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "production page imports useNavigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 4,
+            "role": "import",
+            "note": "production page imports useNavigate from react-router-dom",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/MiniProgress.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "production component imports useNavigate",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/HomePage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "production page imports useNavigate",
+            "verified": true
+          },
+          {
+            "file": "src/pages/progress/ProgressPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "production page imports useNavigate",
+            "verified": true
+          },
+          {
+            "file": "src/pages/studio/StudioPage.jsx",
+            "line": 2,
+            "role": "import",
+            "note": "production page imports useNavigate",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "417d3ed6-f919-520b-9764-6503b522e85a",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-53668",
+        "message": "react-router: react-router-dom: React Router: Cross-Site Scripting (XSS) via open redirects",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.13.0",
+        "raw": {
+          "Title": "react-router: react-router-dom: React Router: Cross-Site Scripting (XSS) via open redirects",
+          "Description": "React Router is a router for React. In versions 6.30.2 through 6.30.4 and 7.9.6 through 7.12.0, applications that allow open redirects are vulnerable to XSS. An attacker could craft a malicious link that redirects users to an unexpected external site or that exploits an XSS vector.This issue has been fixed in version 7.13.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "medium",
+        "reasoning": "The CVE is an XSS-via-open-redirect in react-router, triggered when a `to` value passed to <Navigate>/navigate() is an attacker-controlled external URL. The investigator positively examined every first-party call site and found all destinations are compile-time string literals pointing at internal routes (src/App.jsx:100 catch-all, OnboardingPage.jsx:46, SettingsPage.jsx:200, HomePage.jsx:39, MiniProgress.jsx:126, ProgressPage.jsx:73/196/203, StudioPage.jsx:40), with no useSearchParams/useLocation/dynamic `to` construction feeding the router. This is strong positive evidence that no attacker-controlled input reaches the vulnerable sink. However, dependency-graph coverage is UNAVAILABLE (no manifest graph), which per policy forbids a `not_exploitable` verdict regardless of how convincing the call-site inspection is. The verdict is therefore constrained to `unknown`, with medium confidence because the observed evidence strongly leans toward non-exploitability but the coverage gap prevents a definitive ruling.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "package.json:15",
+          "src/App.jsx:1",
+          "src/App.jsx:100",
+          "src/pages/onboarding/OnboardingPage.jsx:46",
+          "src/pages/settings/SettingsPage.jsx:200",
+          "src/pages/home/HomePage.jsx:39",
+          "src/pages/progress/ProgressPage.jsx:196"
+        ],
+        "evidence_chain": [
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "react-router-dom imported (BrowserRouter/Routes/Route/Navigate)",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 100,
+            "role": "sink",
+            "note": "catch-all <Navigate to={hardcoded \"/home\"|\"/onboarding\"}> \u2014 no attacker input",
+            "verified": true
+          },
+          {
+            "file": "src/pages/onboarding/OnboardingPage.jsx",
+            "line": 46,
+            "role": "sink",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/settings/SettingsPage.jsx",
+            "line": 200,
+            "role": "sink",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/home/HomePage.jsx",
+            "line": 39,
+            "role": "sink",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          },
+          {
+            "file": "src/pages/progress/ProgressPage.jsx",
+            "line": 196,
+            "role": "sink",
+            "note": "navigate('/studio') \u2014 hardcoded literal",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    },
+    {
+      "shallow_finding": {
+        "id": "a9f9a7d6-6065-5329-aaee-3617532e57ff",
+        "tool": "trivy",
+        "category": "dependency",
+        "rule_id": "CVE-2026-53669",
+        "message": "react-router: React Router: Open Redirect vulnerability via backslashes in navigation components",
+        "severity": "medium",
+        "confidence": "unknown",
+        "locations": [
+          {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          }
+        ],
+        "fix": "Upgrade react-router from 7.9.6 to 7.18.0",
+        "raw": {
+          "Title": "react-router: React Router: Open Redirect vulnerability via backslashes in navigation components",
+          "Description": "React Router is a router for React. Versions 6.0.0 through 7.17.0 are vulnerable to Open Redirtect through use of backslashes in <Link> and useNavigate. This issue is a follow up to CVE-2025-68470 and has been fixed in version 7.18.0."
+        },
+        "dependency": {
+          "name": "react-router",
+          "version": "7.9.6",
+          "ecosystem": "npm",
+          "source_file": "package-lock.json",
+          "line_range": [
+            2995,
+            3016
+          ],
+          "raw": null,
+          "relationship": null,
+          "depth": null,
+          "introducers": [],
+          "purl": "pkg:npm/react-router@7.9.6",
+          "is_self": false
+        },
+        "deep_investigable": true,
+        "reachability": null,
+        "paths": {
+          "declared_at": {
+            "file": "package-lock.json",
+            "line_start": 2995,
+            "line_end": 3016,
+            "snippet": null
+          },
+          "probes": [
+            {
+              "name": "react-router",
+              "sites": [
+                {
+                  "file": "src/App.jsx",
+                  "line_start": 1,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/onboarding/OnboardingPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/settings/SettingsPage.jsx",
+                  "line_start": 4,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/MiniProgress.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/home/HomePage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/progress/ProgressPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                },
+                {
+                  "file": "src/pages/studio/StudioPage.jsx",
+                  "line_start": 2,
+                  "line_end": null,
+                  "snippet": null
+                }
+              ],
+              "truncated": false
+            }
+          ],
+          "symbol": null,
+          "symbol_sites": [],
+          "coverage": "unavailable"
+        }
+      },
+      "exploitability": {
+        "verdict": "unknown",
+        "confidence": "low",
+        "reasoning": "Coverage and reachability are UNAVAILABLE, and the only observed navigation call site (src/App.jsx:30) uses a hardcoded literal. The investigator's claim that all navigation targets are hardcoded rests on call sites that are NOT OBSERVED (e.g., OnboardingPage.jsx:46, HomePage.jsx:39), so there is no positive observed evidence that no attacker-controlled input reaches any navigation call. The dependency is present and used in production code, but the vulnerable behavior cannot be ruled out or confirmed. Verdict is unknown.",
+        "evidence_refs": [
+          "package-lock.json:2995",
+          "src/App.jsx:1",
+          "src/App.jsx:30"
+        ],
+        "evidence_chain": [
+          {
+            "file": "package-lock.json",
+            "line": 2995,
+            "role": "introducer",
+            "note": "react-router 7.9.6 declared in manifest",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 1,
+            "role": "import",
+            "note": "react-router-dom imported into production app",
+            "verified": true
+          },
+          {
+            "file": "src/App.jsx",
+            "line": 30,
+            "role": "caller",
+            "note": "<Navigate to=\"/home\"> hardcoded internal literal, no observed attacker input",
+            "verified": true
+          }
+        ],
+        "clamped_reason": null
+      }
+    }
+  ],
+  "degraded": false
+}
