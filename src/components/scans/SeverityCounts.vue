@@ -50,7 +50,7 @@ defineProps<{
   height: 18px;
   place-items: center;
   border: 1px solid currentColor;
-  border-radius: 3px;
+  border-radius: var(--radius-compact);
   font-family: inherit;
   font-size: 9px;
   font-weight: 800;

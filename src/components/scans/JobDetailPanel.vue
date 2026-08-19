@@ -3,7 +3,10 @@ import {
   ArrowUpRight,
   Ban,
   CalendarClock,
+  Download,
+  Eye,
   FileJson2,
+  FileX2,
   FolderGit2,
   Gauge,
   Hash,
@@ -21,11 +24,15 @@ import SeverityCounts from './SeverityCounts.vue'
 const props = defineProps<{
   job: ScanJob
   cancelling?: boolean
+  reportAction?: 'raw' | 'download' | null
+  reportError?: string | null
 }>()
 
 const emit = defineEmits<{
   cancel: [job: ScanJob]
   view: [job: ScanJob]
+  raw: [job: ScanJob]
+  download: [job: ScanJob]
 }>()
 
 const isActive = computed(() => ['queued', 'uploading', 'running'].includes(props.job.status))
@@ -138,6 +145,10 @@ function formatTimestamp(value: string | null) {
         {{ job.error }}
       </NAlert>
 
+      <NAlert v-if="reportError" type="error" :bordered="true" class="job-error">
+        {{ reportError }}
+      </NAlert>
+
       <section class="finding-summary">
         <div class="section-heading">
           <span><ListTree :size="13" aria-hidden="true" /> Findings</span>
@@ -181,12 +192,31 @@ function formatTimestamp(value: string | null) {
         <template #icon><Ban :size="15" /></template>
         Cancel scan
       </NButton>
-      <NButton v-if="isComplete" type="primary" @click="emit('view', job)">
-        View findings
-        <template #icon><ArrowUpRight :size="15" /></template>
-      </NButton>
-      <span v-if="!isActive && !isComplete" class="terminal-state">
-        No report is available for this job.
+      <div v-else-if="isComplete" class="report-actions">
+        <NButton
+          :loading="reportAction === 'download'"
+          :disabled="reportAction === 'raw'"
+          @click="emit('download', job)"
+        >
+          <template #icon><Download :size="14" /></template>
+          Download report
+        </NButton>
+        <NButton
+          :loading="reportAction === 'raw'"
+          :disabled="reportAction === 'download'"
+          @click="emit('raw', job)"
+        >
+          <template #icon><Eye :size="14" /></template>
+          View raw report
+        </NButton>
+        <NButton type="primary" :disabled="Boolean(reportAction)" @click="emit('view', job)">
+          View findings
+          <template #icon><ArrowUpRight :size="14" /></template>
+        </NButton>
+      </div>
+      <span v-else class="terminal-state">
+        <FileX2 :size="15" aria-hidden="true" />
+        Report unavailable
       </span>
     </footer>
   </article>
@@ -235,7 +265,7 @@ function formatTimestamp(value: string | null) {
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid #35402b;
-  border-radius: 5px;
+  border-radius: var(--radius-panel, 4px);
   color: #b7ef45;
   background: #151b13;
 }
@@ -261,7 +291,7 @@ function formatTimestamp(value: string | null) {
   padding: 10px 11px;
   overflow: hidden;
   border: 1px solid #273037;
-  border-radius: 4px;
+  border-radius: var(--radius-control, 3px);
   color: #858f95;
   background: #0b0f11;
   font-size: 11px;
@@ -388,7 +418,7 @@ function formatTimestamp(value: string | null) {
   padding: 12px;
   overflow-y: auto;
   border: 1px solid #252d32;
-  border-radius: 4px;
+  border-radius: var(--radius-control, 3px);
   color: #a9b0b4;
   background: #090c0e;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
@@ -450,8 +480,34 @@ function formatTimestamp(value: string | null) {
   background: #101417;
 }
 
+.report-actions {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.report-actions :deep(.n-button) {
+  padding-inline: 10px;
+}
+
 .terminal-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: #697279;
   font-size: 12px;
+}
+
+@media (max-width: 1660px) and (min-width: 1360px) {
+  .report-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .report-actions :deep(.n-button:last-child) {
+    grid-column: 1 / -1;
+  }
 }
 </style>

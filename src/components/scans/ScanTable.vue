@@ -239,7 +239,7 @@ tbody tr:last-child td {
   display: inline-block;
   padding: 4px 7px;
   border: 1px solid #323a40;
-  border-radius: 3px;
+  border-radius: var(--radius-compact);
   color: #a3abb0;
   font-size: 10px;
   text-transform: capitalize;

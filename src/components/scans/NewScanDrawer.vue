@@ -212,7 +212,7 @@ function submit() {
   height: 31px;
   place-items: center;
   border: 1px solid #41502f;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   color: #b7ef45;
   background: #151b13;
 }
@@ -283,7 +283,7 @@ function submit() {
   gap: 10px;
   padding: 15px;
   border: 1px solid #273037;
-  border-radius: 5px;
+  border-radius: var(--radius-panel);
   background: #090c0e;
 }
 

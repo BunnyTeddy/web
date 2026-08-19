@@ -5,62 +5,74 @@ import {
   Braces,
   Check,
   Copy,
+  ExternalLink,
   FileCode2,
   GitBranch,
   Package,
   ShieldAlert,
   Wrench,
-  X,
 } from '@lucide/vue'
 import { NButton, NEmpty, NTabPane, NTabs, useMessage } from 'naive-ui'
 
 import type { Finding } from '@/domain/types'
-import EvidenceGraph from './EvidenceGraph.vue'
-import type { EvidenceStep } from './evidenceGraphModel'
+import EvidenceTrace from './EvidenceTrace.vue'
 import SeverityBadge from './SeverityBadge.vue'
+
+const detailTabs = ['overview', 'evidence', 'raw'] as const
+type DetailTab = (typeof detailTabs)[number]
 
 const props = withDefaults(
   defineProps<{
     finding?: Finding | null
-    showClose?: boolean
+    projectName?: string
+    scanFinishedAt?: string
+    sourceJobId?: string | null
+    activeTab?: DetailTab
+    headingTag?: 'h1' | 'h2'
   }>(),
   {
     finding: null,
-    showClose: false,
+    projectName: '',
+    scanFinishedAt: '',
+    sourceJobId: null,
+    headingTag: 'h2',
   },
 )
 
-defineEmits<{
-  close: []
+const emit = defineEmits<{
+  openScan: [jobId: string]
+  'update:activeTab': [tab: DetailTab]
 }>()
 
-const activeTab = ref('overview')
+const internalActiveTab = ref<DetailTab>('overview')
+const activeTabModel = computed<DetailTab>({
+  get: () => props.activeTab ?? internalActiveTab.value,
+  set: (tab) => {
+    internalActiveTab.value = tab
+    emit('update:activeTab', tab)
+  },
+})
 const copied = ref(false)
 const message = useMessage()
 
 const investigation = computed(() => props.finding?.investigation ?? null)
 
-const evidenceSteps = computed<EvidenceStep[]>(() => {
-  if (!props.finding) return []
-
-  return props.finding.evidenceNodes.map((node) => ({
-    file: node.file,
-    line: node.line,
-    lineEnd: node.lineEnd,
-    role: node.role,
-    note: node.note,
-    verified: node.verified,
-    snippet: node.snippet,
-    source: node.source,
-  }))
-})
-
 const rawJson = computed(() => (props.finding ? JSON.stringify(props.finding.raw, null, 2) : ''))
 
 const reachability = computed(() => props.finding?.reachability || 'unavailable')
 
-const detailTabs = ['overview', 'evidence', 'raw'] as const
-type DetailTab = (typeof detailTabs)[number]
+const formattedScanDate = computed(() => {
+  if (!props.scanFinishedAt) return ''
+  const value = new Date(props.scanFinishedAt)
+  if (Number.isNaN(value.getTime())) return 'Date unavailable'
+  return new Intl.DateTimeFormat('en', {
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(value)
+})
 
 function focusDetailTab(name: DetailTab) {
   void nextTick(() => document.getElementById(`finding-tab-${name}`)?.focus())
@@ -79,12 +91,12 @@ function handleTabKeydown(event: KeyboardEvent, name: DetailTab) {
 
   if (!target) return
   event.preventDefault()
-  activeTab.value = target
+  activeTabModel.value = target
   focusDetailTab(target)
 }
 
 function detailTabProps(name: DetailTab): HTMLAttributes {
-  const selected = activeTab.value === name
+  const selected = activeTabModel.value === name
   return {
     id: `finding-tab-${name}`,
     role: 'tab',
@@ -114,15 +126,14 @@ const copyRuleId = async () => {
   <article v-if="finding" class="finding-detail">
     <header class="finding-detail__header">
       <div class="finding-detail__identity">
-        <div class="finding-detail__meta">
-          <SeverityBadge :severity="finding.severity" />
-          <span class="finding-detail__divider" aria-hidden="true" />
-          <span>{{ finding.tool }}</span>
-          <span class="finding-detail__divider" aria-hidden="true" />
-          <span>{{ finding.category }}</span>
-        </div>
         <div class="finding-detail__rule-row">
-          <h2 class="mono">{{ finding.ruleId }}</h2>
+          <component :is="headingTag" class="finding-detail__rule-heading mono">
+            {{ finding.ruleId }}
+          </component>
+          <SeverityBadge :severity="finding.severity" />
+          <span class="finding-detail__meta">{{ finding.tool }}</span>
+          <span class="finding-detail__divider" aria-hidden="true" />
+          <span class="finding-detail__meta">{{ finding.category }}</span>
           <NButton
             quaternary
             size="tiny"
@@ -135,20 +146,27 @@ const copyRuleId = async () => {
             </template>
           </NButton>
         </div>
+        <div v-if="projectName || formattedScanDate" class="finding-detail__context">
+          <span v-if="projectName">Project: {{ projectName }}</span>
+          <span v-if="projectName && formattedScanDate" aria-hidden="true">·</span>
+          <span v-if="formattedScanDate">Scan: {{ formattedScanDate }}</span>
+        </div>
       </div>
 
-      <NButton
-        v-if="showClose"
-        quaternary
-        circle
-        aria-label="Close finding details"
-        @click="$emit('close')"
-      >
-        <template #icon><X :size="18" /></template>
-      </NButton>
+      <div class="finding-detail__actions">
+        <NButton
+          v-if="sourceJobId"
+          secondary
+          size="small"
+          @click="emit('openScan', sourceJobId)"
+        >
+          <template #icon><ExternalLink :size="14" /></template>
+          Open scan
+        </NButton>
+      </div>
     </header>
 
-    <NTabs v-model:value="activeTab" type="line" animated class="finding-detail__tabs">
+    <NTabs v-model:value="activeTabModel" type="line" class="finding-detail__tabs">
       <NTabPane name="overview" tab="Overview" :tab-props="detailTabProps('overview')">
         <div
           id="finding-panel-overview"
@@ -255,16 +273,16 @@ const copyRuleId = async () => {
         </div>
       </NTabPane>
 
-      <NTabPane name="evidence" tab="Evidence chain" :tab-props="detailTabProps('evidence')">
+      <NTabPane name="evidence" tab="Evidence trace" :tab-props="detailTabProps('evidence')">
         <div
           id="finding-panel-evidence"
-          class="finding-detail__content finding-detail__content--graph"
+          class="finding-detail__content finding-detail__content--trace"
           role="tabpanel"
           aria-labelledby="finding-tab-evidence"
         >
-          <EvidenceGraph
-            :steps="evidenceSteps"
-            :usage-only="finding.evidenceKind === 'usage'"
+          <EvidenceTrace
+            :steps="finding.evidenceNodes"
+            :kind="finding.evidenceKind"
             :reachability="finding.reachability"
           />
         </div>
@@ -299,8 +317,10 @@ const copyRuleId = async () => {
 
 <style scoped>
 .finding-detail {
+  display: flex;
   min-width: 0;
   height: 100%;
+  flex-direction: column;
   background: #101416;
 }
 
@@ -317,13 +337,28 @@ const copyRuleId = async () => {
   min-width: 0;
 }
 
-.finding-detail__meta {
+.finding-detail__context {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 7px;
+  margin-top: 10px;
+  color: #aab2ad;
+  font-size: 11px;
+  font-weight: 610;
+}
+
+.finding-detail__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.finding-detail__meta {
   color: #899398;
   font-size: 11px;
   font-weight: 600;
+  text-transform: lowercase;
 }
 
 .finding-detail__divider {
@@ -334,17 +369,19 @@ const copyRuleId = async () => {
 
 .finding-detail__rule-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 7px;
-  margin-top: 11px;
+  gap: 10px;
 }
 
-.finding-detail__rule-row h2 {
+.finding-detail__rule-heading {
   overflow: hidden;
   margin: 0;
   color: #f1f3ef;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -352,7 +389,7 @@ const copyRuleId = async () => {
 .finding-detail__tabs {
   display: flex;
   min-height: 0;
-  height: calc(100% - 91px);
+  flex: 1;
   flex-direction: column;
 }
 
@@ -379,10 +416,9 @@ const copyRuleId = async () => {
   padding: 6px 28px 40px;
 }
 
-.finding-detail__content--graph {
+.finding-detail__content--trace {
   box-sizing: border-box;
   min-height: 0;
-  height: 100%;
   padding: 16px 28px 22px;
 }
 
@@ -405,7 +441,7 @@ const copyRuleId = async () => {
   width: 34px;
   height: 34px;
   border: 1px solid rgb(255 118 109 / 25%);
-  border-radius: 7px;
+  border-radius: var(--radius-panel, 4px);
   color: #ff766d;
   background: rgb(255 118 109 / 6%);
 }
@@ -492,7 +528,7 @@ const copyRuleId = async () => {
   margin-left: auto;
   padding: 0 5px;
   border: 1px solid #343c42;
-  border-radius: 999px;
+  border-radius: var(--radius-compact, 2px);
   color: #8d969b;
   font-family: 'SFMono-Regular', Consolas, monospace;
   font-size: 10px;
@@ -525,7 +561,7 @@ const copyRuleId = async () => {
 .location-card {
   overflow: hidden;
   border: 1px solid #283036;
-  border-radius: 6px;
+  border-radius: var(--radius-panel, 4px);
   background: #0d1114;
 }
 
@@ -629,7 +665,7 @@ const copyRuleId = async () => {
 .raw-panel {
   overflow: hidden;
   border: 1px solid #283036;
-  border-radius: 7px;
+  border-radius: var(--radius-panel, 4px);
   background: #0a0e10;
 }
 
@@ -670,9 +706,9 @@ const copyRuleId = async () => {
 }
 
 .finding-detail--empty {
-  display: grid;
   min-height: 500px;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   padding: 32px;
 }
 

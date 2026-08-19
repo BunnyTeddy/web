@@ -50,7 +50,7 @@ const content = computed(() => {
   gap: 6px;
   padding: 5px 9px;
   border: 1px solid #374047;
-  border-radius: 999px;
+  border-radius: var(--radius-compact);
   color: #aeb5ba;
   background: #14191d;
   font-size: 11px;

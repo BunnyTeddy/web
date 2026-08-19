@@ -49,7 +49,7 @@ onMounted(() => settingsStore.initialize())
       </RouterLink>
 
       <nav class="primary-nav" aria-label="Primary">
-        <span class="nav-caption">Navigation</span>
+        <span class="nav-divider" aria-hidden="true" />
         <RouterLink
           v-for="item in navigation"
           :key="item.to"
@@ -114,7 +114,7 @@ onMounted(() => settingsStore.initialize())
 
 .brand {
   display: flex;
-  min-height: 78px;
+  min-height: 100px;
   align-items: center;
   gap: 11px;
   padding: 0 18px;
@@ -147,14 +147,13 @@ onMounted(() => settingsStore.initialize())
 .primary-nav {
   display: grid;
   gap: 4px;
-  padding: 22px 12px;
+  padding: 0 12px 22px;
 }
 
-.nav-caption {
-  padding: 0 10px 9px;
-  color: #69737a;
-  font-size: 11px;
-  font-weight: 600;
+.nav-divider {
+  height: 1px;
+  margin: 0 10px 12px;
+  background: #252c31;
 }
 
 .nav-item {
@@ -165,7 +164,7 @@ onMounted(() => settingsStore.initialize())
   gap: 11px;
   padding: 0 11px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   color: #9ca4a9;
   font-size: 14px;
   font-weight: 560;
@@ -188,7 +187,7 @@ onMounted(() => settingsStore.initialize())
   left: -12px;
   width: 2px;
   height: 22px;
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 var(--radius-compact) var(--radius-compact) 0;
   background: #b7ef45;
   content: '';
 }
@@ -275,7 +274,7 @@ onMounted(() => settingsStore.initialize())
   }
 
   .brand-name,
-  .nav-caption,
+  .nav-divider,
   .nav-item span,
   .scanner-state {
     display: none;

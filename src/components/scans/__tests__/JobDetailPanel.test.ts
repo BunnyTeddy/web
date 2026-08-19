@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
+import { NButton } from 'naive-ui'
 import { nextTick } from 'vue'
 import { describe, expect, it } from 'vitest'
 
@@ -77,5 +78,34 @@ describe('JobDetailPanel scan activity', () => {
     await nextTick()
 
     expect(log.element.scrollTop).toBe(40)
+  })
+
+  it('shows all report actions only for completed jobs with an available report', () => {
+    const wrapper = shallowMount(JobDetailPanel, {
+      props: { job: makeJob(['Report ready with 3 findings']) },
+    })
+
+    expect(wrapper.findAllComponents(NButton)).toHaveLength(3)
+    expect(wrapper.text()).not.toContain('Report unavailable')
+  })
+
+  it('shows report unavailable instead of fake actions for terminal jobs without a report', () => {
+    const job = makeJob(['Summary recorded'])
+    job.reportScanId = null
+    const wrapper = shallowMount(JobDetailPanel, { props: { job } })
+
+    expect(wrapper.text()).toContain('Report unavailable')
+    expect(wrapper.findAllComponents(NButton)).toHaveLength(0)
+  })
+
+  it('keeps cancel as the only action for active jobs', () => {
+    const job = makeJob(['Security engines are analysing the project'])
+    job.status = 'running'
+    job.progress = 68
+    job.reportScanId = null
+    const wrapper = shallowMount(JobDetailPanel, { props: { job } })
+
+    expect(wrapper.findAllComponents(NButton)).toHaveLength(1)
+    expect(wrapper.text()).not.toContain('Report unavailable')
   })
 })

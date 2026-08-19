@@ -79,12 +79,6 @@ export interface EvidenceNode {
   source: 'investigation' | 'usage'
 }
 
-export interface EvidenceEdge {
-  id: string
-  source: string
-  target: string
-}
-
 export interface Investigation {
   verdict: string
   confidence: Confidence
@@ -111,7 +105,6 @@ export interface Finding {
   paths: FindingPaths | null
   investigation: Investigation | null
   evidenceNodes: EvidenceNode[]
-  evidenceEdges: EvidenceEdge[]
   evidenceKind: EvidenceKind
   raw: unknown
 }
@@ -134,6 +127,24 @@ export interface ScanReport {
   degraded: boolean
   degradedReasons: string[]
   raw: unknown
+}
+
+export type FindingsScope = 'latest' | 'scan'
+
+/**
+ * A finding enriched with the report/job context needed by the global findings
+ * workspace. Finding ids are only unique inside a report, so consumers should
+ * use `key` for selection and rendering.
+ */
+export interface FindingRecord {
+  key: string
+  finding: Finding
+  scanId: string
+  projectName: string
+  projectSlug: string
+  scanStartedAt: string
+  scanFinishedAt: string
+  sourceJobId: string | null
 }
 
 export interface ScanJob {

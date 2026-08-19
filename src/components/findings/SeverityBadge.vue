@@ -38,7 +38,7 @@ const severityLabel = computed(
 .severity-badge__dot {
   width: 7px;
   height: 7px;
-  border-radius: 2px;
+  border-radius: var(--radius-compact);
   background: var(--severity-color);
 }
 

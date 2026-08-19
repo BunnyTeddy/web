@@ -149,7 +149,11 @@ async function createScan(input: ScanCreateInput) {
 
 function openJob(job: ScanJob) {
   if (job.status === 'completed' && job.reportScanId) {
-    void router.push(`/findings/${job.reportScanId}`)
+    void router.push({
+      name: 'scan-findings',
+      params: { scanId: job.reportScanId },
+      query: { scope: 'scan', job: job.id },
+    })
     return
   }
   void router.push({ path: '/scans', query: { job: job.id } })
@@ -422,7 +426,7 @@ onMounted(initialize)
   height: 34px;
   flex: 0 0 auto;
   border: 1px solid #2a3237;
-  border-radius: 7px;
+  border-radius: var(--radius-control);
   place-items: center;
   background: #141a1d;
 }
@@ -462,7 +466,7 @@ onMounted(initialize)
   gap: 6px;
   padding: 5px 8px;
   border: 1px solid #2c3439;
-  border-radius: 999px;
+  border-radius: var(--radius-compact);
   color: #899399;
   font-size: 10px;
   font-weight: 600;
@@ -508,7 +512,7 @@ onMounted(initialize)
   height: 8px;
   gap: 3px;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: var(--radius-control);
   background: #252c31;
 }
 
@@ -561,7 +565,7 @@ onMounted(initialize)
 .severity-label i {
   width: 6px;
   height: 6px;
-  border-radius: 2px;
+  border-radius: var(--radius-compact);
   background: var(--severity-color);
 }
 
@@ -623,7 +627,7 @@ onMounted(initialize)
   gap: 8px;
   padding: 7px 10px;
   border: 1px solid #282f34;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   color: #cfd3ce;
   text-align: left;
   background: #121719;
@@ -640,7 +644,7 @@ onMounted(initialize)
   display: grid;
   width: 28px;
   height: 28px;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   place-items: center;
 }
 
@@ -797,7 +801,7 @@ onMounted(initialize)
 
 .value-skeleton {
   display: block;
-  border-radius: 4px;
+  border-radius: var(--radius-panel);
   background: #20272c;
   animation: pulse 1.3s ease-in-out infinite alternate;
 }

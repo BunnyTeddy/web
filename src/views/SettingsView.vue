@@ -492,7 +492,7 @@ onMounted(async () => {
   width: 40px;
   height: 40px;
   border: 1px solid #343c42;
-  border-radius: 7px;
+  border-radius: var(--radius-control);
   color: #c2c9c5;
   background: #171c20;
 }
@@ -518,7 +518,7 @@ onMounted(async () => {
   gap: 6px;
   padding: 6px 9px;
   border: 1px solid rgb(242 109 95 / 22%);
-  border-radius: 999px;
+  border-radius: var(--radius-compact);
   color: #d9746b;
   background: rgb(242 109 95 / 4%);
   font-size: 11px;

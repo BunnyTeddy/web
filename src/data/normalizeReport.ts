@@ -1,7 +1,6 @@
 import type {
   Confidence,
   Dependency,
-  EvidenceEdge,
   EvidenceKind,
   EvidenceNode,
   Finding,
@@ -209,17 +208,6 @@ function fallbackUsageEvidence(findingId: string, paths: FindingPaths | null): E
   return nodes
 }
 
-function evidenceEdges(nodes: EvidenceNode[]): EvidenceEdge[] {
-  return nodes.slice(1).map((node, index) => {
-    const previous = nodes[index]
-    return {
-      id: `${previous?.id ?? 'evidence'}--${node.id}`,
-      source: previous?.id ?? node.id,
-      target: node.id,
-    }
-  })
-}
-
 function normalizeFinding(
   value: unknown,
   scanId: string,
@@ -258,7 +246,6 @@ function normalizeFinding(
     paths,
     investigation,
     evidenceNodes,
-    evidenceEdges: evidenceEdges(evidenceNodes),
     evidenceKind,
     raw: value,
   }

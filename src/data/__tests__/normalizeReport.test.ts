@@ -59,7 +59,13 @@ describe('report normalization', () => {
       verified: false,
       snippet: null,
     })
-    expect(uninvestigated?.evidenceEdges).toHaveLength(3)
+    expect(uninvestigated?.evidenceNodes.map((node) => node.file)).toEqual([
+      'config/nodemailer.js',
+      'controllers/JobController.js',
+      'controllers/JobApplicationController.js',
+      'controllers/AuthController.js',
+    ])
+    expect(uninvestigated).not.toHaveProperty('evidenceEdges')
   })
 
   it('preserves unavailable reachability and null snippets without fabricating source', () => {

@@ -21,15 +21,15 @@ export const naiveThemeOverrides: GlobalThemeOverrides = {
     textColor1: '#eef1ed',
     textColor2: '#c5cbc6',
     textColor3: '#879197',
-    borderRadius: '8px',
-    borderRadiusSmall: '6px',
+    borderRadius: 'var(--radius-control)',
+    borderRadiusSmall: 'var(--radius-compact)',
     fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
     fontFamilyMono: "'v-mono', 'SFMono-Regular', Consolas, monospace",
     heightMedium: '38px',
     heightSmall: '32px',
   },
   Button: {
-    borderRadiusMedium: '7px',
+    borderRadiusMedium: 'var(--radius-control)',
     fontWeight: '600',
   },
   DataTable: {
