@@ -45,10 +45,7 @@ onMounted(() => settingsStore.initialize())
         <span class="brand-mark" aria-hidden="true">
           <img src="/secsource-mark.svg" alt="" />
         </span>
-        <span class="brand-copy">
-          <strong>SecSource</strong>
-          <small>Security console</small>
-        </span>
+        <strong class="brand-name">SecSource</strong>
       </RouterLink>
 
       <nav class="primary-nav" aria-label="Primary">
@@ -117,9 +114,9 @@ onMounted(() => settingsStore.initialize())
 
 .brand {
   display: flex;
-  min-height: 72px;
+  min-height: 78px;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
   padding: 0 18px;
   color: #f4f5f2;
   text-decoration: none;
@@ -127,32 +124,24 @@ onMounted(() => settingsStore.initialize())
 
 .brand-mark {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   flex: 0 0 auto;
   place-items: center;
 }
 
 .brand-mark img {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
 }
 
-.brand-copy {
-  display: grid;
-  gap: 1px;
-  line-height: 1.1;
-}
-
-.brand-copy strong {
-  font-size: 16px;
-  letter-spacing: -0.02em;
-}
-
-.brand-copy small {
-  color: #7f898f;
-  font-size: 11px;
+.brand-name {
+  font-family: 'v-mono', 'SFMono-Regular', Consolas, monospace;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1;
 }
 
 .primary-nav {
@@ -285,7 +274,7 @@ onMounted(() => settingsStore.initialize())
     padding: 0;
   }
 
-  .brand-copy,
+  .brand-name,
   .nav-caption,
   .nav-item span,
   .scanner-state {
